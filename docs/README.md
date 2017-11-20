@@ -1,7 +1,6 @@
 # KSQL Documentation
 
-| Overview |[Quick Start](/docs/quickstart#quick-start) | [Concepts](/docs/concepts.md#concepts) | [Syntax Reference](/docs/syntax-reference.md#syntax-reference) |[Demo](/ksql-clickstream-demo#clickstream-analysis) | [Examples](/docs/examples.md#examples) | [FAQ](/docs/faq.md#frequently-asked-questions)  | [Roadmap](/docs/roadmap.md#roadmap) | 
-|---|----|-----|----|----|----|----|----|
+The full Confluent Platform documentation is available at [docs.confluent.io](https://docs.confluent.io/current/ksql/docs/index.html).
 
 > *Important: This release is a **developer preview** and is free and open-source from Confluent under the Apache 2.0 license. Do not run KSQL against a production cluster.*
 
@@ -26,7 +25,41 @@ You can use KSQL in standalone, client-server, application, and embedded modes. 
 
 ## Getting Started
 
-* Beginners: Try the [interactive quick start](/docs/quickstart#quick-start). The quick start configures a single instance in a lightweight Docker container or in a Kafka cluster. It demonstrates a simple workflow using KSQL to write streaming queries against data in Kafka.
-* Advanced users: Try the [end-to-end Clickstream Analysis demo](/ksql-clickstream-demo#clickstream-analysis).
+* Beginners: Try the [interactive quick start](quickstart/index.rst). The quick start configures a single instance in a lightweight Docker container or in a Kafka cluster. It demonstrates a simple workflow using KSQL to write streaming queries against data in Kafka.
+* Advanced users: Try the [end-to-end Clickstream Analysis demo](ksql-clickstream-demo/index.rst).
 
+# Table of contents
 
+- [Quick Start](quickstart/index.rst)
+- [Configuring KSQL](config-ksql.rst)
+- [Concepts](concepts.rst)
+- [Syntax Reference](syntax-reference.rst)
+- [Clickstream Analysis Demo](ksql-clickstream-demo/index.rst)
+- [KSQL Examples](examples.rst)
+- [Frequently Asked Questions](faq.rst)
+
+# Building the documentation
+
+This documentation is built using [Sphinx](http://sphinx-doc.org). It also uses some extensions for theming and REST API
+documentation support.
+
+Start by installing the requirements:
+
+    pip install -r requirements.txt
+
+Then you can generate the HTML version of the docs:
+
+    make html
+
+The root of the documentation will be at `_build/html/index.html`
+
+While editing the documentation, you can get a live preview using python-livepreview. Install the Python library:
+
+    pip install livereload
+
+Then run the monitoring script in the background:
+
+    python autoreload.py &
+
+If you install the [browser extensions](http://livereload.com/) then everything should update every time any files are
+saved without any manual steps on your part.
