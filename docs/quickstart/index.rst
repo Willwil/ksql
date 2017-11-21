@@ -8,78 +8,35 @@ Quick Start
     This release is a developer preview. It is strongly recommended that you test before running KSQL against a production Kafka cluster.
 
 The goal of this quick start is to demonstrate a simple workflow using
-KSQL to write streaming queries against data in Kafka.
+KSQL to write streaming queries against messages in Kafka.
 
 Setup
 -----
 
 .. toctree::
-    :maxdepth: 3
     :hidden:
 
     quickstart-non-docker
     quickstart-docker
 
-Because KSQL queries data in a Kafka cluster, you will need to bring up a Kafka cluster, including ZooKeeper and a Kafka broker.
+To get started, you must start a Kafka cluster, including ZooKeeper and a Kafka broker. KSQL will then query messages from this Kafka cluster.
 
-1. Bring up a Kafka cluster and start KSQL. Follow the instructions based on whether you are using Docker:
+Launch a Kafka cluster, start KSQL, and produce messages to query. Follow the instructions based on whether you are using Docker:
 
-    -  :ref:`ksql_quickstart_docker` (recommended)
-    -  :ref:`ksql_quickstart_non_docker`
+:ref:`ksql_quickstart_docker` (recommended)
+    The Docker container starts a Kafka cluster, starts KSQL, and automatically runs a data generator that continuously produces Kafka messages to the Kafka cluster. No additional setup is required.
 
-2. After you have successfully started the Kafka cluster and started
-   KSQL, you will see the KSQL prompt:
-
-   .. code:: bash
-
-                          ======================================
-                          =      _  __ _____  ____  _          =
-                          =     | |/ // ____|/ __ \| |         =
-                          =     | ' /| (___ | |  | | |         =
-                          =     |  <  \___ \| |  | | |         =
-                          =     | . \ ____) | |__| | |____     =
-                          =     |_|\_\_____/ \___\_\______|    =
-                          =                                    =
-                          =   Streaming SQL Engine for Kafka   =
-       Copyright 2017 Confluent Inc.                         
-
-       CLI v0.1, Server v0.1 located at http://localhost:9098
-
-       Having trouble? Type 'help' (case-insensitive) for a rundown of how things work!
-
-       ksql>
-
-3. KSQL provides a structured query language to query Kafka data, so you
-   need some data to query. For this quick start, you will produce mock
-   streams to the Kafka cluster.
-
-    -  If you are using our Docker Compose files, a Docker container is
-       already running with a data generator that is continuously producing
-       Kafka messages to the Kafka cluster. No further action is required.
-    -  If you are not using our Docker environment, then follow these
-       :ref:`instructions <produce-topic-data>` to
-       generate data to the Kafka cluster.
+:ref:`ksql_quickstart_non_docker`
+    With this method you start a Kafka cluster, start KSQL, and manually run a data generator to produce topics called ``pageviews`` and ``users``
 
 .. _create-a-stream-and-table:
 
 Create a Stream and Table
 -------------------------
 
-This KSQL quick start shows examples querying data from Kafka topics
-called ``pageviews`` and ``users`` using the following schemas:
+These examples query messages from Kafka topics called ``pageviews`` and ``users`` using the following schemas:
 
 .. image:: ../img/ksql-quickstart-schemas.jpg
-
-Before proceeding, please check:
-
--  In the terminal window where you started KSQL, you see the ``ksql>``
-   prompt
--  If you are not using Docker, you must manually have run the data
-   generator to produce topics called ``pageviews`` and ``users``. If
-   you haven’t done this, please follow these
-   :ref:`instructions <produce-topic-data>`
-   to generate data. (Docker compose file automatically runs the data
-   generator)
 
 #. Create a STREAM ``pageviews_original`` from the Kafka topic
    ``pageviews``, specifying the ``value_format`` of ``DELIMITED``.
@@ -89,7 +46,7 @@ Before proceeding, please check:
 
    .. code:: bash 
 
-        ksql> CREATE STREAM pageviews_original (viewtime bigint, userid varchar, pageid varchar) WITH (kafka_topic='pageviews', value_format='DELIMITED');
+        ksql> CREATE STREAM pageviews_original (viewtime BIGINT, userid VARCHAR, pageid VARCHAR) WITH (kafka_topic='pageviews', value_format='DELIMITED');
 
         ksql> DESCRIBE pageviews_original;
 
@@ -106,7 +63,7 @@ Before proceeding, please check:
 
    .. code:: bash 
 
-    ksql> CREATE TABLE users_original (registertime bigint, gender varchar, regionid varchar, userid varchar) WITH (kafka_topic='users', value_format='JSON');
+    ksql> CREATE TABLE users_original (registertime BIGINT, gender VARCHAR, regionid VARCHAR, userid VARCHAR) WITH (kafka_topic='users', value_format='JSON');
 
     ksql> DESCRIBE users_original;
 
@@ -137,6 +94,8 @@ Before proceeding, please check:
 
 Write Queries
 -------------
+
+These examples write queries using KSQL.
 
 **Note:** By default KSQL reads the topics for streams and tables from
 the latest offset.
@@ -279,7 +238,7 @@ down <https://docs.docker.com/compose/reference/down/>`__ documentation.
 
 **Important:** This command will delete all KSQL queries and topic data.
 
-::
+.. code:: bash 
 
     $ docker-compose down
 
@@ -289,7 +248,7 @@ Confluent Platform
 If you are running the Confluent Platform, you can stop it with this
 command.
 
-::
+.. code:: bash
 
     $ confluent stop
 

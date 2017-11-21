@@ -84,6 +84,7 @@ types, a column of ``array`` type, and a column of ``map`` type:
        interests array<VARCHAR>, \
        contact_info map<VARCHAR, VARCHAR>) \
       WITH (kafka_topic='users-topic', \
+            key = 'userid',\
             value_format='JSON');
 
 

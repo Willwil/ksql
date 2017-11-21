@@ -28,7 +28,7 @@ Registry is listening on ``localhost:8081``.
 
 .. code:: bash
 
-    $ ./bin/confluent start
+    $ <path-to-confluent>/bin/confluent start
 
 Your output should resemble this.
 
@@ -68,9 +68,25 @@ Start KSQL
 
        $ ./bin/ksql-cli local
 
-   After KSQL is started, your terminal should resemble this.
+   After you have successfully started the Kafka cluster and started
+   KSQL, you will see the KSQL prompt:
 
    .. code:: bash
+
+                          ======================================
+                          =      _  __ _____  ____  _          =
+                          =     | |/ // ____|/ __ \| |         =
+                          =     | ' /| (___ | |  | | |         =
+                          =     |  <  \___ \| |  | | |         =
+                          =     | . \ ____) | |__| | |____     =
+                          =     |_|\_\_____/ \___\_\______|    =
+                          =                                    =
+                          =   Streaming SQL Engine for Kafka   =
+       Copyright 2017 Confluent Inc.
+
+       CLI v0.1, Server v0.1 located at http://localhost:9098
+
+       Having trouble? Type 'help' (case-insensitive) for a rundown of how things work!
 
        ksql>
 

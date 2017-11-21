@@ -39,8 +39,7 @@ example, we could have a stream of financial transactions such as “Alice
 sent $100 to Bob, then Charlie sent $50 to Bob”. Facts in a stream are
 immutable, which means new facts can be inserted to a stream, but
 existing facts can never be updated or deleted. Streams can be created
-from a Kafka topic or derived from existing streams and tables. In both
-cases, a stream’s underlying data is durably stored (persisted) within a
+from a Kafka topic. A stream’s underlying data is durably stored (persisted) within a
 Kafka topic on the Kafka brokers.
 
 Table

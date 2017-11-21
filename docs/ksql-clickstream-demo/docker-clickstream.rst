@@ -176,7 +176,7 @@ Prerequisites
 
     ::
 
-        ksql> run script '/usr/share/doc/ksql-clickstream-demo/clickstream-schema.sql';
+        ksql> RUN SCRIPT '/usr/share/doc/ksql-clickstream-demo/clickstream-schema.sql';
 
     The output should resemble:
 
@@ -191,7 +191,7 @@ Prerequisites
 
     ::
 
-        ksql> list TABLES;
+        ksql> LIST TABLES;
 
     Your output should resemble:
 
@@ -215,7 +215,7 @@ Prerequisites
 
     ::
 
-        ksql> list STREAMS;
+        ksql> LIST STREAMS;
 
     Your output should resemble:
 

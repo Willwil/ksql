@@ -41,14 +41,14 @@ Prerequisites
 
     .. code:: bash
 
-        cp ksql-clickstream-demo/demo/connect-config/null-filter-4.0.0-SNAPSHOT.jar <path-to-confluent-3.3.0>/share/java/kafka-connect-elasticsearch/
+        cp ksql-clickstream-demo/demo/connect-config/null-filter-4.0.0-SNAPSHOT.jar <path-to-confluent>/share/java/kafka-connect-elasticsearch/
 
 4.  From your terminal, start the Confluent Platform. It should be
     running on default port 8083.
 
     .. code:: bash
 
-        $ <path-to-confluent-3.3.0>/bin/confluent start
+        $ <path-to-confluent>/bin/confluent start
 
     The output should resemble:
 
@@ -161,7 +161,7 @@ Prerequisites
 
     ::
 
-        ksql> run script 'ksql-clickstream-demo/demo/clickstream-schema.sql';
+        ksql> RUN SCRIPT 'ksql-clickstream-demo/demo/clickstream-schema.sql';
 
     The output should resemble:
 
@@ -176,7 +176,7 @@ Prerequisites
 
     .. code:: bash
 
-        ksql> list TABLES;
+        ksql> LIST TABLES;
 
     Your output should resemble:
 
@@ -200,7 +200,7 @@ Prerequisites
 
     .. code:: bash
 
-        ksql> list STREAMS;
+        ksql> LIST STREAMS;
 
     Your output should resemble:
 
@@ -283,7 +283,7 @@ Prerequisites
 
     1. From your terminal, navigate to the demo directory:
 
-       ::
+       .. code:: bash
 
            cd ksql-clickstream-demo/demo/
 
@@ -360,5 +360,5 @@ Troubleshooting
       and click the **Save & Test** button. This will indicate whether
       your data source is valid.
    -  If your data source is not shown, go to
-      ``/ksql/ksql-clickstream-demo/demo/`` and run
+      ``<path-to-ksql>/demo/`` and run
       ``./ksql-tables-to-grafana.sh``.

@@ -10,12 +10,13 @@ you can return to the :ref:`create-a-stream-and-table` and start querying the da
     :local:
     :depth: 1
 
-Prerequisites
-    - Docker
-         - `macOS <https://docs.docker.com/docker-for-mac/install/>`__
-         - `All platforms <https://docs.docker.com/engine/installation/>`__
-    - `Git <https://git-scm.com/downloads>`__
-    - Java: Minimum version 1.8
+**Prerequisites**
+
+- Docker
+     - `macOS <https://docs.docker.com/docker-for-mac/install/>`__
+     - `All platforms <https://docs.docker.com/engine/installation/>`__
+- `Git <https://git-scm.com/downloads>`__
+- Java: Minimum version 1.8
 
 Start a Kafka cluster
 ---------------------
@@ -33,6 +34,28 @@ Start a Kafka cluster
 
        $ cd ksql/docs/quickstart/
        $ docker-compose up -d
+
+   After you have successfully started the Kafka cluster and started
+   KSQL, you will see the KSQL prompt:
+
+   .. code:: bash
+
+                          ======================================
+                          =      _  __ _____  ____  _          =
+                          =     | |/ // ____|/ __ \| |         =
+                          =     | ' /| (___ | |  | | |         =
+                          =     |  <  \___ \| |  | | |         =
+                          =     | . \ ____) | |__| | |____     =
+                          =     |_|\_\_____/ \___\_\______|    =
+                          =                                    =
+                          =   Streaming SQL Engine for Kafka   =
+       Copyright 2017 Confluent Inc.
+
+       CLI v0.1, Server v0.1 located at http://localhost:9098
+
+       Having trouble? Type 'help' (case-insensitive) for a rundown of how things work!
+
+       ksql>
 
 Proceed to :ref:`start-ksql`.
 
