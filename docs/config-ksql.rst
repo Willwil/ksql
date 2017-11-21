@@ -75,5 +75,5 @@ different to the syntax of the SET statement above.
     $ ksql-cli local --properties-file ./ksql.properties
 
     # Start a KSQL server node (for client-server mode) with the custom properties above
-    $ ksql-server-start --properties-file ./ksql.properties
+    $ ksql-server-start ./ksql.properties
 
